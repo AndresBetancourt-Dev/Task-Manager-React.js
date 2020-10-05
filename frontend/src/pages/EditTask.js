@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { Container } from "react-bootstrap";
 import Form from "../components/Form";
 import api from "../components/api";
-class CreateTask extends Component {
+
+class EditTask extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,6 +11,10 @@ class CreateTask extends Component {
       task: {},
       error: null,
     };
+  }
+
+  componentDidMount() {
+    this.fetchTask();
   }
 
   handleChange = (e) => {
@@ -22,10 +27,21 @@ class CreateTask extends Component {
     });
   };
 
+  fetchTask = async () => {
+    this.setState({ loading: true, error: null });
+    try {
+      const task = await api.getTask(this.props.match.params.id);
+      this.setState({ loading: false, task: task });
+    } catch (error) {
+      this.setState({ loading: false, error: error });
+      console.log(error.message);
+    }
+  };
+
   handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await api.createTask(this.state.task);
+      await api.updateTask(this.state.task);
       this.props.history.push("/");
     } catch (error) {
       console.log(error.message);
@@ -40,13 +56,17 @@ class CreateTask extends Component {
       <React.Fragment>
         <Container>
           <Form
-            type={"Create"}
-            handleSubmit={this.handleSubmit}
+            type={"Edit"}
             onChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+            title={this.state.task.title}
+            content={this.state.task.content}
+            author={this.state.task.author}
           />
         </Container>
       </React.Fragment>
     );
   }
 }
-export default CreateTask;
+
+export default EditTask;

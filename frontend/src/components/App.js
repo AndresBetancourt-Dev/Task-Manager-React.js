@@ -1,10 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import "./App.css";
-import TaskList from "./pages/TaskList";
-import CreateTask from "./pages/CreateTask";
-import CreateUser from "./pages/CreateUser";
-import Layout from "./components/Layout";
+import TaskList from "../pages/TaskList";
+import CreateTask from "../pages/CreateTask";
+import EditTask from "../pages/EditTask";
+import Layout from "./Layout";
 
 function App() {
   return (
@@ -12,8 +11,7 @@ function App() {
       <Layout>
         <Route exact path="/" component={TaskList} />
         <Route exact path="/create" component={CreateTask} />
-        <Route exact path="/edit/:id" component={CreateTask} />
-        <Route exact path="/user" component={CreateUser} />
+        <Route exact path="/edit/:id" component={EditTask} />
       </Layout>
     </Router>
   );

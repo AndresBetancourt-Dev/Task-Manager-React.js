@@ -1,0 +1,6 @@
+.Footer {
+  min-height: 25px;
+  background: var(--salmon);
+  position: fixed;
+  bottom: 0;
+}

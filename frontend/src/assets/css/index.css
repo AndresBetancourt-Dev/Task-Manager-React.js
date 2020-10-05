@@ -1,0 +1,21 @@
+@import url("./fonts.css");
+
+:root {
+  --salmon: rgb(255, 72, 68);
+  --light-pink: rgb(255, 152, 180);
+  --fucsia: rgb(255, 152, 228);
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

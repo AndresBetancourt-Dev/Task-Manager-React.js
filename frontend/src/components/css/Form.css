@@ -1,0 +1,19 @@
+.Form-title,
+.Form-label {
+  text-align: center;
+  font-family: "Poppins Bold", sans-serif;
+  color: var(--salmon);
+}
+
+.Form-button {
+  background: var(--salmon);
+  outline: none;
+  border: none;
+  width: 100%;
+  padding: 20px;
+}
+
+.Form-button:hover {
+  box-shadow: 1px 1px 8px var(--light-pink);
+  background-color: rgb(212, 32, 12);
+}
